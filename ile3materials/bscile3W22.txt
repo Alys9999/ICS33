@@ -1,0 +1,66 @@
+# Setup
+c-->from imp import reload
+c-->import exam
+c-->reload(exam)
+c-->from exam import tail, all_odd, min_cuts_odd, transformkey_dict
+c-->from ile3helper import ints, primes, hide, nth, nth_for_m, is_prime
+c-->from inspect import isgeneratorfunction, isgenerator
+c-->from goody import irange
+c-->def odd_count_criteria(s : str) -> bool: return all(all_odd(part) for part in s.split('|'))
+
+# Test tail
+e-->isgenerator(tail('a','b','c', 'd'))-->True
+e-->list(tail(hide('abcd'), primes(3), primes(3), primes(3), primes(3), hide('abcdefgh'), hide([1,2,3])))-->['e', 'f', 'g', 'h']
+e-->list(nth_for_m(tail(primes(),primes(100),primes(100),primes(100),primes(100),range(50)),200,10))-->[1583, 1597, 1601, 1607, 1609, 1613, 1619, 1621, 1627, 1637]
+
+# Test all_odd helper
+==-->[all_odd(''),all_odd('a'),all_odd('aa'),all_odd('cabcaabcbbcaacb'),all_odd('cabcaabcbbcaaacb'),all_odd('cabcaabcbbccaacb'),all_odd('cabbcaabcbbcaacb')]-->[True, True, False, True, False, False, False]
+
+# Test min_cuts_odd
+c-->arg = ''
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,0
+c-->arg = 'cbbbbbaabbcb'
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,1
+c-->arg = 'bbbcabcccacb'
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,2
+c-->arg = 'ccabbaacabbc'
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,3
+c-->arg = 'bbaccbaabaab'
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,4
+c-->arg = 'ccbaaccbaabb'
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,5
+c-->arg = 'bbaaccbbaabb'
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,6
+c-->arg = 'acccbcccabcabcbc'
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,2
+c-->arg = 'aaccabbaccabbcaa'
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,4
+c-->arg = 'aaccbaaabaccaabb'
+c-->mco = min_cuts_odd(arg)
+==-->odd_count_criteria(mco),mco.replace('|',''),mco.count('|')-->True,arg,6
+
+# Test transformkey_dict
+c-->d = transformkey_dict(str.lower)
+c-->d['Gamma'] = 'G'
+c-->d['aLPHa'] = 1
+c-->d['BetA'] = 2
+c-->d['ALPHA'] += 10
+e-->[d['alPHA'], d['BEta'],d['GAMMA']]-->[11, 2, 'G']
+e-->dict.__str__(d)-->{'gamma': 'G', 'alpha': 11, 'beta': 2}
+e-->[d('aLpHa'), d('BeTa'),d('GAMMA')]-->['aLPHa', 'BetA', 'Gamma']
+
+e-->len(d)-->3
+
+# Test transformkey_dict extra credit
+c-->d = transformkey_dict(str.lower,[('ALPHA', 1), ('BETA',2)], GAmma=3, delTA = 4)
+e-->[d['alPHA'], d['BEta'],d['gamma'], d['DELTA']]-->[1, 2, 3, 4]
+e-->[d('alPHA'), d('BEta'),d('gamma'), d('DELTA')]-->['ALPHA', 'BETA', 'GAmma', 'delTA']

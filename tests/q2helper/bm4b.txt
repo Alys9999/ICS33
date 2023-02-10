@@ -1,0 +1,18 @@
+x
+*x
+x=12
+x=12
+x=-12345
+x_ab_3
+_abc
+_123s
+Above should match; below should not (and of course, not this line)
+x*
+3
+3x
+x 12
+x -1
+x=
+=12
+x =12
+x= 12

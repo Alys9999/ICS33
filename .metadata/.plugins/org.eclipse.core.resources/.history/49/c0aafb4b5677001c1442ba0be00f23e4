@@ -1,0 +1,68 @@
+import prompt 
+from goody       import safe_open,irange
+from collections import defaultdict # Use defaultdict for prefix and query
+
+
+def all_prefixes(fq : (str,)) -> {(str,)}:
+    s=set()
+    for x in range(1,len(fq)+1):
+        s.add(fq[:x])
+    return s
+
+        
+def add_query(prefix : {(str,):{(str,)}}, query : {(str,):int}, new_query : (str,)) -> None:
+    all_p_new=all_prefixes(new_query)
+    for x in all_p_new:
+        if x in prefix.keys():
+            cont=prefix[x]
+            cont.add(new_query)
+            prefix[x]=cont
+        else:
+            prefix[x]={new_query}
+    if new_query in query.keys():
+        query[new_query]+=1
+    else:
+        query[new_query]=1
+
+
+def read_queries(open_file : open) -> ({(str,):{(str,)}}, {(str,):int}):
+    prefix={}
+    query={}
+    with open(open_file.name) as open_file:
+        for line in open_file:
+            line=tuple(line.replace('\n','').split(' '))
+            add_query(prefix,query,line)
+    return prefix,query
+            
+
+
+def dict_as_str(d : {None:None}, key : callable=None, reverse : bool=False) -> str:
+    d_li=sorted(d,key=key,reverse=reverse)
+    for x in d_li:   
+        print(d[x])
+
+
+def top_n(a_prefix : (str,), n : int, prefix : {(str,):{(str,)}}, query : {(str,):int}) -> [(str,)]:
+    pass
+
+
+
+
+
+# Script
+
+if __name__ == '__main__':
+    # Write script here
+    #all_prefixes(('uci','medical','center'))
+    #add_query(p,q,('u','m','c'))
+    #p,q = read_queries(open('googleq0.txt'))
+    d = defaultdict(a=5, ab=2, am=5, ax=4, abc=3, abz=6, aza=1, lmnop=3)
+    dict_as_str(d,lambda x : (len(x),x))  
+    # For running batch self-tests
+    print()
+    import driver
+    driver.default_file_name = "bsc5.txt"
+#     driver.default_show_traceback = True
+#     driver.default_show_exception = True
+#     driver.default_show_exception_message = True
+    driver.driver()

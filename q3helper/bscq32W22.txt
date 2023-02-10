@@ -1,0 +1,40 @@
+# Setup
+c-->from importlib import reload
+c-->import misspelling
+c-->reload(misspelling)
+c-->from misspelling import Misspelling
+c-->def new_initialize_attributes(self): self.amoral = 1; self.more = 2; self.babel = 3; self.battle = 4; self.last = 5
+c-->Misspelling.initialize_attributes = new_initialize_attributes
+
+c-->m1 = Misspelling(True)
+c-->m2 = Misspelling()
+
+# Test __getattr__
+e-->m1.babel-->3
+e-->m1.babe-->3
+e-->m1.least-->5
+e-->m1.LaSt-->5
+^-->m1.LASt-->NameError
+^-->m1.LAST-->NameError
+^-->m1.colorado-->NameError
+^-->m1.amorx-->NameError
+^-->m1.bax-->NameError
+e-->m2.least-->5
+e-->m2.babe-->3
+
+# Test __setattr__
+c-->m1.babel=13
+==-->m1.__dict__-->{'fix_when_setting': True, 'amoral': 1, 'more': 2, 'babel': 13, 'battle': 4, 'last': 5}
+c-->m1.babe=23
+==-->m1.__dict__-->{'fix_when_setting': True, 'amoral': 1, 'more': 2, 'babel': 23, 'battle': 4, 'last': 5}
+c-->m1.mora=12
+==-->m1.__dict__-->{'fix_when_setting': True, 'amoral': 1, 'more': 12, 'babel': 23, 'battle': 4, 'last': 5}
+c-->m1.least=15
+==-->m1.__dict__-->{'fix_when_setting': True, 'amoral': 1, 'more': 12, 'babel': 23, 'battle': 4, 'last': 15}
+^-->m1.colorado=6-->NameError
+^-->m1.amorx=10-->NameError
+^-->m2.least=15-->NameError
+==-->m1.__dict__-->{'fix_when_setting': True, 'amoral': 1, 'more': 12, 'babel': 23, 'battle': 4, 'last': 15}
+c-->m1.fix_when_setting=True
+c-->m1.least=15
+==-->m1.__dict__-->{'fix_when_setting': True, 'amoral': 1, 'more': 12, 'babel': 23, 'battle': 4, 'last': 15}

@@ -1,0 +1,36 @@
+def match_params_args(params_string : str, args_string : str, trace = False) -> {str:int}:
+    pa_list=params_string.split(',')
+    ar_list=args_string.split(',')
+    if len(pa_list)==len(ar_list):
+        re_d=dict((pa_list[x],x) for x in range(len(pa_list)))
+    else: raise AssertionError("not valid input")
+    if pa_list==['']:
+        re_d={} 
+    return re_d
+    
+ def match_params_args(params_string : str, args_string : str, trace = False) -> {str:int}:
+    pa_list=params_string.strip().split(',')
+    ar_list=args_string.strip().split(',')
+    p=r'^(?:(?P<star>\*)?(?:(?P<name>[a-zA-Z_][a-zA-Z_\d]*)))(?:=(?P<value>[+-]?\d{1,}))*$'
+    re_d={}
+    skip_n=0
+    if pa_list==['']:
+        pass
+    elif len(pa_list)==len(ar_list) or '*args' in pa_list:
+        name_list=[re.search(p, n).group('name') for n in pa_list]
+        for x in range(len(pa_list)):
+            if pa_list[x]=='*args':
+                re_d['*args']=tuple(ar_list[x:]) 
+            elif len(ar_list[x])>=3: 
+                m=re.search(p,ar_list[x])
+                re_d[m.group('name')]=m.group('value')
+            elif ar_list[x].isdigit():
+                re_d[pa_list[x]]=int(ar_list[x])
+            else: assert ("not valid input")
+    else: raise AssertionError ("not valid input")
+    return re_d
+    
+    
+    
+    
+    

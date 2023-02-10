@@ -1,0 +1,205 @@
+-- VERSION_5
+-- START DISKCACHE_3
+E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\.metadata\.plugins\org.eclipse.core.resources\.projects\p0\com.python.pydev.analysis\v2_indexcache
+test|1642663282027919000|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\test.py
+courselib.predicate|1640997771654171500|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\predicate.py
+courselib.equivalence|1640997771476874500|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\equivalence.py
+courselib.driver|1640997771404570900|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\driver.py
+courselib.prompt|1640997771720645200|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\prompt.py
+courselib.stopwatch|1640997771785467900|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\stopwatch.py
+courselib.goody|1640997771529762700|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\goody.py
+project0b.project0b.collatz|1640658616266562600|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0b\project0b\collatz.py
+courselib.dice|1640997771347278500|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\dice.py
+project0d.facts|1641001070412879500|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0d\facts.py
+project0c.collatz|1640658616266562600|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0c\collatz.py
+courselib.stack|1640997771764505500|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\stack.py
+courselib.modular|1640997771614962700|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\modular.py
+project0a.demo|1640487007156895300|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0a\demo.py
+project0a.__init__|1640912645994875900|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0a\__init__.py
+courselib.graph|1640997771576031900|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\graph.py
+courselib.priorityqueue|1640997771676107400|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\priorityqueue.py
+project0c.craps|1640989306022308300|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0c\craps.py
+-- END DISKCACHE
+-- START DICTIONARY
+61
+53=EquivalenceClass.clear
+46=PriorityQueue.__init__
+1=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\equivalence.py
+30=courselib.predicate
+25=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0d\facts.py
+15=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\stack.py
+38=Stopwatch
+57=Stack.clear
+18=courselib.driver
+6=courselib.stopwatch
+28=courselib.goody
+33=Modular
+43=Stopwatch.__init__
+58=Modular.inc
+5=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\stopwatch.py
+39=Graph.NodeInfo
+36=EquivalenceClass
+10=courselib.graph
+32=test
+23=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0c\craps.py
+3=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\prompt.py
+35=PriorityQueue
+49=Stopwatch._update
+13=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\priorityqueue.py
+34=Stack
+37=Graph
+59=Modular.dec
+52=EquivalenceClass.__init__
+61=PriorityQueue.clear
+16=courselib.stack
+14=courselib.priorityqueue
+27=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\goody.py
+4=courselib.prompt
+20=project0b.project0b.collatz
+42=Graph.clear
+26=project0d.facts
+21=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0c\collatz.py
+22=project0c.collatz
+55=Stopwatch.stop
+41=Graph.__init__
+47=Stopwatch.start
+31=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\test.py
+45=Graph.NodeInfo.__init__
+51=Modular.__init__
+50=Dice.__init__
+11=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\modular.py
+24=project0c.craps
+7=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\dice.py
+56=Stack.__init__
+2=courselib.equivalence
+40=Dice
+48=Stopwatch.start_backwards
+29=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\predicate.py
+9=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\graph.py
+54=Dice.roll
+44=Stopwatch.reset
+8=courselib.dice
+17=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\driver.py
+19=E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0b\project0b\collatz.py
+60=Modular.clear
+12=courselib.modular
+-- END DICTIONARY
+-- START TREE 1
+51
+a|1|a!1^162#17*19@
+act|8|action!3^162#9*35@action!5^120#9*51@action!7^136#9*67@action!9^358#9*83@action!11^238#9*99@action!13^231#9*115@action!1^158#9*19@action!15^106#9*131@
+b|1|b!1^163#17*19@
+bat|1|batch_self_check!17^25#5*146@
+com|8|commandPrompt!5^117#5*51@command_prompt!9^354#5*83@command_prompt!7^133#5*67@command_prompt!3^160#5*35@command_prompt!13^228#5*115@command_prompt!11^235#5*99@command_prompt!15^103#5*131@command_prompt!1^155#5*19@
+con|1|connected_components!9^304#5*82@
+cyc|2|cycle_count!19^61#1*163@cycle_count!21^61#1*179@
+d|1|d!7^134#5*67@
+def|7|default_show_traceback!17^9#1*147@default_show_exception!17^10#1*147@default_separator!17^6#1*147@default_show_all!17^8#1*147@default_file_name!17^5#1*147@default_show_comment!17^7#1*147@default_show_exception_message!17^11#1*147@
+dic|2|Dice!7^4#7*65@dice!23^55#1*195@
+dri|1|driver!17^200#5*146@
+e|2|e!1^156#5*19@e!9^373#17*83@
+equ|1|EquivalenceClass!1^1#7*17@
+fac|2|fact2!25^7#5*210@fact1!25^4#5*210@
+fir|1|first_roll!23^63#5*195@
+for|9|for_num!3^71#5*34@for_value!3^11#5*34@for_char!3^108#5*34@for_int_between!3^83#5*34@for_string_via_index!3^134#5*34@for_float!3^59#5*34@for_int!3^47#5*34@for_string!3^96#5*34@for_bool!3^123#5*34@
+fra|1|frange!27^47#5*226@
+g|1|g!9^355#5*83@
+gam|2|game_timer!23^56#1*195@games_to_play!23^58#1*195@
+gra|1|Graph!9^2#7*81@
+i|1|i!7^143#17*67@
+imp|1|implements_protocol!27^20#5*226@
+ira|1|irange!27^31#5*226@
+is_|10|is_percentage!29^5#5*242@is_non_negative!29^4#5*242@is_less_than!29^10#5*242@is_bigger_than!29^7#5*242@is_prime!29^13#5*242@is_debugging!19^60#1*163@is_even!29^1#5*242@is_positive!29^3#5*242@is_odd!29^2#5*242@is_debugging!21^60#1*179@
+lea|1|leading!27^74#5*226@
+len|1|length_equal!29^27#5*242@
+los|1|lose_count!23^53#1*195@
+m|2|m!11^236#5*99@m!31^12#1*259@
+mak|1|make_symmetric!9^298#5*82@
+min|1|minimum_spanning_tree!9^312#5*82@
+mod|1|Modular!11^1#7*97@
+n|1|n!9^370#17*83@
+ori|2|original_number!19^59#1*163@original_number!21^59#1*179@
+par|1|parse_lines!27^112#5*226@
+pho|1|phone!31^11#1*259@
+poi|1|point!23^74#9*195@
+pq|1|pq!13^229#5*115@
+pri|1|PriorityQueue!13^4#7*113@
+pro|2|prompt_edge!9^332#9*82@ProtocolError!27^17#7*225@
+ran|1|random_graph!9^285#5*82@
+rev|1|reverse!29^22#5*242@
+rol|1|roll!23^77#13*195@
+s|3|s!5^118#5*51@s!31^13#1*259@s!15^104#5*131@
+saf|1|safe_open!27^85#5*226@
+sta|1|Stack!15^4#7*129@
+sto|1|Stopwatch!5^4#7*49@
+tes|2|test_number!19^62#1*163@test_number!21^62#1*179@
+tim|2|timer!19^64#1*163@timer!21^64#1*179@
+typ|1|type_as_str!27^8#5*226@
+val|1|value!3^166#17*35@
+win|1|win_count!23^52#1*195@
+-- END TREE
+-- START TREE 2
+62
+__a|4|__add__!33&11^59#9*98@__add__!34&15^74#9*130@__add__!35&13^199#9*114@__add__!36&1^125#9*18@
+__b|5|__bool__!33&11^52#9*98@__bool__!35&13^207#9*114@__bool__!34&15^82#9*130@__bool__!36&1^133#9*18@__bool__!37&9^275#9*82@
+__e|1|__eq__!33&11^148#9*98@
+__g|2|__ge__!33&11^203#9*98@__gt__!33&11^181#9*98@
+__i|11|__init__!36&1^8#9*18@__init__!35&13^9#9*114@__init__!33&11^6#9*98@__iter__!34&15^67#9*130@__init__!38&5^9#9*50@__init__!37&9^7#9*82@__init__!39&9^29#13*82@__init__!34&15^9#9*130@__iter__!36&1^118#9*18@__iter__!35&13^173#9*114@__init__!40&7^10#9*66@
+__l|2|__le__!33&11^192#9*98@__lt__!33&11^170#9*98@
+__m|1|__mul__!33&11^104#9*98@
+__n|2|__next__!35&13^182#9*114@__ne__!33&11^159#9*98@
+__p|1|__pow__!33&11^126#9*98@
+__r|4|__radd__!33&11^70#9*98@__rpow__!33&11^137#9*98@__rsub__!33&11^93#9*98@__rmul__!33&11^115#9*98@
+__s|8|__str__!38&5^78#9*50@__str__!33&11^214#9*98@__sub__!33&11^82#9*98@__str__!36&1^114#9*18@__str__!37&9^260#9*82@__str__!40&7^97#9*66@__str__!35&13^166#9*114@__str__!34&15^60#9*130@
+_co|1|_compress_to_root!36&1^28#9*18@
+_ed|2|_edges!41&9^15#9*83@_edges!42&9^101#9*83@
+_el|2|_elapsed_prior!43&5^16#9*51@_elapsed_prior!44&5^26#9*51@
+_ge|1|_gen!35&13^192#9*114@
+_he|1|_heapify!35&13^50#9*114@
+_in|2|_in_edges!45&9^30#13*83@_in_heap!35&13^58#9*114@
+_ke|1|_key!46&13^15#9*115@
+_la|5|_last_start_time!43&5^17#9*51@_last_start_time!44&5^27#9*51@_last_start_time!47&5^39#9*51@_last_start_time!48&5^53#9*51@_last_start_time!49&5^103#9*51@
+_le|1|_left_child!35&13^28#9*114@
+_ma|1|_max_pips!50&7^26#9*67@
+_mo|1|_modulus!51&11^14#9*99@
+_no|2|_nodes!41&9^14#9*83@_nodes!42&9^100#9*83@
+_ou|1|_out_edges!45&9^31#13*83@
+_pa|3|_parent!35&13^43#9*114@_parent!52&1^13#9*19@_parent!53&1^55#9*19@
+_pe|3|_percolate_up_recursive!35&13^81#9*114@_percolate_down!35&13^92#9*114@_percolate_up!35&13^69#9*114@
+_pi|2|_pips!50&7^27#9*67@_pips!54&7^36#9*67@
+_re|1|_reverse!46&13^16#9*115@
+_ri|1|_right_child!35&13^35#9*114@
+_ro|3|_root_size!52&1^14#9*19@_root_size!53&1^56#9*19@_roll_count!50&7^28#9*67@
+_ru|9|_running_forward!43&5^15#9*51@_running_forward!44&5^25#9*51@_running_forward!47&5^41#9*51@_running_forward!48&5^55#9*51@_running_now!43&5^14#9*51@_running_now!44&5^24#9*51@_running_now!47&5^40#9*51@_running_now!48&5^54#9*51@_running_now!55&5^64#9*51@
+_st|1|_strict!41&9^16#9*83@
+_sw|1|_swap!35&13^62#9*114@
+_tr|1|_trichotomy!35&13^20#9*114@
+_up|1|_update!38&5^98#9*50@
+_va|8|_values!56&15^13#9*131@_values!57&15^35#9*131@_value!51&11^13#9*99@_value!58&11^21#9*99@_value!59&11^28#9*99@_value!60&11^35#9*99@_values!46&13^14#9*115@_values!61&13^132#9*115@
+add|5|add!35&13^108#9*114@add_node!37&9^34#9*82@add_singleton!36&1^19#9*18@add!34&15^16#9*130@add_edge!37&9^44#9*82@
+all|3|all_pip_maximums!40&7^49#9*66@all_classes!36&1^102#9*18@all_pips!40&7^73#9*66@
+cle|5|clear!34&15^31#9*130@clear!35&13^128#9*114@clear!33&11^31#9*98@clear!36&1^51#9*18@clear!37&9^96#9*82@
+dec|1|dec!33&11^24#9*98@
+deg|1|degree!37&9^202#9*82@
+edg|3|edge_value!37&9^171#9*82@edges!37&9^218#9*82@edge_count!37&9^143#9*82@
+has|2|has_edge!37&9^164#9*82@has_node!37&9^157#9*82@
+in_|4|in_same_class!36&1^60#9*18@in_degree!37&9^184#9*82@in_nodes!37&9^225#9*82@in_edges!37&9^243#9*82@
+inc|1|inc!33&11^17#9*98@
+is_|4|is_empty!37&9^150#9*82@is_empty!35&13^152#9*114@is_empty!34&15^46#9*130@is_singleton!36&1^87#9*18@
+mer|2|merge!35&13^135#9*114@merge_classes_containing!36&1^68#9*18@
+mod|1|modulus!33&11^45#9*98@
+nod|3|NodeInfo!37&9^25#11*81@node_count!37&9^136#9*82@nodes!37&9^211#9*82@
+num|1|number_of_dice!40&7^42#9*66@
+out|3|out_degree!37&9^193#9*82@out_edges!37&9^251#9*82@out_nodes!37&9^234#9*82@
+pee|2|peek!35&13^144#9*114@peek!34&15^38#9*130@
+pip|3|pips_on!40&7^63#9*66@pips_same!40&7^89#9*66@pip_sum!40&7^81#9*66@
+rea|2|read!37&9^104#9*82@read!38&5^68#9*50@
+rem|4|remove_edge!37&9^79#9*82@remove_node!37&9^62#9*82@remove!35&13^116#9*114@remove!34&15^23#9*130@
+res|1|reset!38&5^20#9*50@
+rol|2|roll!40&7^30#9*66@rolls!40&7^56#9*66@
+siz|3|size!36&1^95#9*18@size!35&13^159#9*114@size!34&15^53#9*130@
+sta|4|start!38&5^30#9*50@start_backwards!38&5^44#9*50@status!38&5^90#9*50@standard_rolls_for_debugging!40&7^106#9*66@
+sto|1|stop!38&5^58#9*50@
+val|1|value!33&11^38#9*98@
+wri|1|write!37&9^122#9*82@
+-- END TREE

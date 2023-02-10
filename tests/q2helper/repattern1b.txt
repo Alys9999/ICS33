@@ -1,0 +1,1 @@
+^(?P<step>S)?(?:(?P<great>G*)(?P<grand>g))?(?P<basic>[mfsd])$

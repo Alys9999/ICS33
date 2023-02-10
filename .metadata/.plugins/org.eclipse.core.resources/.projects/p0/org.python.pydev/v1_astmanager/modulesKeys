@@ -1,0 +1,24 @@
+MODULES_MANAGER_V3
+courselib.__init__|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib|^
+courselib.dice|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\dice.py
+courselib.driver|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\driver.py
+courselib.equivalence|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\equivalence.py
+courselib.goody|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\goody.py
+courselib.graph|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\graph.py
+courselib.modular|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\modular.py
+courselib.predicate|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\predicate.py
+courselib.priorityqueue|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\priorityqueue.py
+courselib.prompt|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\prompt.py
+courselib.stack|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\stack.py
+courselib.stopwatch|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\courselib\stopwatch.py
+project0a.__init__|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0a\__init__.py
+project0a.demo|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0a\demo.py
+project0b.__init__|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0b|^
+project0b.project0b.__init__|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0b\project0b|^
+project0b.project0b.collatz|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0b\project0b\collatz.py
+project0c.__init__|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0c|^
+project0c.collatz|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0c\collatz.py
+project0c.craps|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0c\craps.py
+project0d.__init__|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0d|^
+project0d.facts|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\project0d\facts.py
+test|E:\桌面备份\SCHOOLs\winter 2022-UCI\ics33\p0\test.py

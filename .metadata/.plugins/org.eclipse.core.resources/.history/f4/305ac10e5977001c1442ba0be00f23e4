@@ -1,0 +1,82 @@
+import goody
+
+
+def read_ndfa(file : open) -> {str:{str:{str}}}:
+    main_d={}
+    s_main_d={}
+    with open(file.name) as open_file:
+        for line in open_file:
+            main_set=set()
+            line=line.rstrip().split(';')
+            pair_d={}
+            main_set=set()
+            if len(line)==1:
+                main_d[line[0]]={}
+            for x in range(1,len(line)-1,2):
+                if line[x] in pair_d.keys():
+                    stored=pair_d[line[x]]
+                    stored.add(line[x+1])
+                    pair_d[line[x]]=stored
+                else:
+                    item=line[x+1]
+                    pair_set={item,}
+                    pair_d[line[x]]=pair_set
+                main_d[line[0]]=pair_d
+    return main_d
+
+def ndfa_as_str(ndfa : {str:{str:{str}}}) -> str:
+    s=''
+    for x in sorted(ndfa.keys()):
+        li=[]
+        if len(ndfa[x])!=0:
+            for y in sorted(ndfa[x].keys()):
+               tu=(y,list(ndfa[x][y]))
+               li.append(tu)
+            li=sorted(li)
+            s+='  '+str(x)+' transitions: '+str(li)+'\n'
+        else:
+            s+='  '+str(x)+ ' transitions: ' + '[]\n'
+    print(s)
+    return s
+
+       
+def process(ndfa : {str:{str:{str}}}, state : str, inputs : [str]) -> [None]:
+    re_li=[state]
+    x=ndfa[state]
+    for y in inputs:
+        try:
+            #st=str(x[y][0])
+            #tu=(str(y),st)
+            re_li.append((str(y),x[y]))
+            x=ndfa[st]
+        except KeyError:
+            tu=(str(y),None)
+            re_li.append(tu)
+    return re_li
+
+
+def interpret(result : [None]) -> str:
+   pass
+
+
+
+
+
+if __name__ == '__main__':
+    # Write script here
+    #print(read_ndfa(open('ndfaendin01.txt')))
+    ndfa1 = {'end': {}, 'start': {'1': {'start'}, '0': {'start', 'near'}}, 'near': {'1': {'end'}}}
+    #ndfa_as_str(ndfa1)
+    #"  end transitions: []\n  near transitions: [('1', ['end'])]\n  start transitions: [('0', ['near', 'start']), ('1', ['start'])]\n"
+    process(ndfa1,'start','1;0;1;1;0;1'.split(';'))
+    #['start', ('1', {'start'}), ('0', {'start', 'near'}), ('1', {'end', 'start'}), ('1', {'start'}), ('0', {'start', 'near'}), ('1', {'end', 'start'})]
+    
+    
+    # For running batch self-tests
+    print()
+    import driver
+    driver.default_file_name = "bsc4.txt"
+#     driver.default_show_traceback = True
+#     driver.default_show_exception = True
+#     driver.default_show_exception_message = True
+    driver.driver()

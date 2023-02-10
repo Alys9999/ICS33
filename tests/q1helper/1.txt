@@ -1,0 +1,58 @@
+# Setup
+c-->from imp import reload
+c-->import q1solution
+c-->reload(q1solution)
+c-->from q1solution import integrate, stocks, clients_by_volume, stocks_by_volume, by_stock, summary
+c-->from math import sin, pi, isclose
+
+# Test integrate
+c-->f1 = integrate( (lambda x : x), 10)
+c-->f2 = integrate( (lambda x : 3*x**2 - 7*x + 1), 1000)
+c-->f3= integrate( (lambda x : -6*x**5 + 3*x**4 - 9*x**3 - 2), 1000)
+c-->f4= integrate( (lambda x : sin(x)), 10000)
+e-->isclose(f1(-1,1),-0.19999999999999996)-->True
+e-->isclose(f2(-1,2),1.5180135000000026)-->True
+e-->isclose(f3(-3,3),289.8079439992239)-->True
+e-->isclose(f4(-30*pi,30*pi+20),0.5823792440783232)-->True
+^-->f0 = integrate( (lambda x : x), 10.)-->AssertionError
+^-->f0 = integrate( (lambda x : x), -10)-->AssertionError
+c-->f0 = integrate( (lambda x : x), 1)
+^-->f0(10,0)-->AssertionError
+e-->f1.zcc-->1
+e-->f2.zcc-->1
+e-->f4.zcc-->66
+c-->f4(0,100)
+e-->f4.zcc-->31
+e-->[(f:= integrate((lambda x: x if x <=1 else 0),4)), f(-1,3),f.zcc][-1]-->1
+
+# Test stocks
+c-->db1 = {'Carl': [('Intel', 30, 40), ('Dell' , 20, 50), ('Intel',-10, 60), ('Apple', 20, 55)], 'Barb': [('Intel', 20, 40), ('Intel',-10, 45), ('IBN',   40, 30), ('Intel',-10, 35)], 'Allen': [('Intel', 20, 10), ('Dell',  10, 50), ('Apple', 80, 80), ('Dell', -10, 55)], 'Dawn': [('Apple', 40, 80), ('Apple', 40, 85), ('Apple',-40, 90)]}
+==-->stocks(db1)-->{'IBN', 'Intel', 'Dell', 'Apple'}
+c-->db2 = {'Hope': [('Intel',30,40), ('Dell',20,50), ('IBN',10,80), ('Apple',20,90), ('QlCom',20,20)], 'Carl': [('QlCom',30,22), ('QlCom',20,23), ('QlCom',-20,25), ('QlCom',-30,28)],  'Barb': [('Intel',80,42), ('Intel',-80,45), ('Intel',90,28)], 'Fran': [('BrCom',210,62), ('BrCom',-20,64), ('BrCom',-10,66), ('BrCom',10,55)], 'Allen': [('Intel',20,10), ('Dell', 10,50), ('Apple',80,80), ('Dell',-10,55)], 'Gabe': [('IBN',40,82), ('QlCom',80,25), ('IBN',-20,84), ('BrCom',50,65), ('QlCom',-40,28)], 'Dawn': [('Apple',40,92), ('Apple',40,98), ('Apple',-40,92)], 'Evan': [('Apple',50,92), ('Dell',20,50), ('Apple',-10,95), ('Apple',20,95), ('Dell',-20,90)]}
+==-->stocks(db2)-->{'QlCom', 'BrCom', 'Apple', 'IBN', 'Intel', 'Dell'}
+
+# Test clients_by_volume
+c-->db1 = {'Carl': [('Intel', 30, 40), ('Dell' , 20, 50), ('Intel',-10, 60), ('Apple', 20, 55)], 'Barb': [('Intel', 20, 40), ('Intel',-10, 45), ('IBN',   40, 30), ('Intel',-10, 35)], 'Allen': [('Intel', 20, 10), ('Dell',  10, 50), ('Apple', 80, 80), ('Dell', -10, 55)], 'Dawn': [('Apple', 40, 80), ('Apple', 40, 85), ('Apple',-40, 90)]}
+==-->clients_by_volume(db1)-->['Allen', 'Dawn', 'Barb', 'Carl']
+c-->db2 = {'Hope': [('Intel',30,40), ('Dell',20,50), ('IBN',10,80), ('Apple',20,90), ('QlCom',20,20)], 'Carl': [('QlCom',30,22), ('QlCom',20,23), ('QlCom',-20,25), ('QlCom',-30,28)],  'Barb': [('Intel',80,42), ('Intel',-80,45), ('Intel',90,28)], 'Fran': [('BrCom',210,62), ('BrCom',-20,64), ('BrCom',-10,66), ('BrCom',10,55)], 'Allen': [('Intel',20,10), ('Dell', 10,50), ('Apple',80,80), ('Dell',-10,55)], 'Gabe': [('IBN',40,82), ('QlCom',80,25), ('IBN',-20,84), ('BrCom',50,65), ('QlCom',-40,28)], 'Dawn': [('Apple',40,92), ('Apple',40,98), ('Apple',-40,92)], 'Evan': [('Apple',50,92), ('Dell',20,50), ('Apple',-10,95), ('Apple',20,95), ('Dell',-20,90)]}
+==-->clients_by_volume(db2)-->['Barb', 'Fran', 'Gabe', 'Allen', 'Dawn', 'Evan', 'Carl', 'Hope']
+
+# Test stocks_by_volume
+c-->db1 = {'Carl': [('Intel', 30, 40), ('Dell' , 20, 50), ('Intel',-10, 60), ('Apple', 20, 55)], 'Barb': [('Intel', 20, 40), ('Intel',-10, 45), ('IBN',   40, 30), ('Intel',-10, 35)], 'Allen': [('Intel', 20, 10), ('Dell',  10, 50), ('Apple', 80, 80), ('Dell', -10, 55)], 'Dawn': [('Apple', 40, 80), ('Apple', 40, 85), ('Apple',-40, 90)]}
+==-->stocks_by_volume(db1)-->[('Apple', 220), ('Intel', 100), ('Dell', 40), ('IBN', 40)]
+c-->db2 = {'Hope': [('Intel',30,40), ('Dell',20,50), ('IBN',10,80), ('Apple',20,90), ('QlCom',20,20)], 'Carl': [('QlCom',30,22), ('QlCom',20,23), ('QlCom',-20,25), ('QlCom',-30,28)],  'Barb': [('Intel',80,42), ('Intel',-80,45), ('Intel',90,28)], 'Fran': [('BrCom',210,62), ('BrCom',-20,64), ('BrCom',-10,66), ('BrCom',10,55)], 'Allen': [('Intel',20,10), ('Dell', 10,50), ('Apple',80,80), ('Dell',-10,55)], 'Gabe': [('IBN',40,82), ('QlCom',80,25), ('IBN',-20,84), ('BrCom',50,65), ('QlCom',-40,28)], 'Dawn': [('Apple',40,92), ('Apple',40,98), ('Apple',-40,92)], 'Evan': [('Apple',50,92), ('Dell',20,50), ('Apple',-10,95), ('Apple',20,95), ('Dell',-20,90)]}
+==-->stocks_by_volume(db2)-->[('Apple', 300), ('BrCom', 300), ('Intel', 300), ('QlCom', 240), ('Dell', 80), ('IBN', 70)]
+
+# Test by_stock
+c-->db1 = {'Carl': [('Intel', 30, 40), ('Dell' , 20, 50), ('Intel',-10, 60), ('Apple', 20, 55)], 'Barb': [('Intel', 20, 40), ('Intel',-10, 45), ('IBN',   40, 30), ('Intel',-10, 35)], 'Allen': [('Intel', 20, 10), ('Dell',  10, 50), ('Apple', 80, 80), ('Dell', -10, 55)], 'Dawn': [('Apple', 40, 80), ('Apple', 40, 85), ('Apple',-40, 90)]}
+==-->by_stock(db1)-->{'Intel': {'Carl': [(30, 40), (-10, 60)], 'Barb': [(20, 40), (-10, 45), (-10, 35)], 'Allen': [(20, 10)]}, 'Dell': {'Carl': [(20, 50)], 'Allen': [(10, 50), (-10, 55)]}, 'Apple': {'Carl': [(20, 55)], 'Allen': [(80, 80)], 'Dawn': [(40, 80), (40, 85), (-40, 90)]}, 'IBN': {'Barb': [(40, 30)]}}
+c-->db2 = {'Hope': [('Intel',30,40), ('Dell',20,50), ('IBN',10,80), ('Apple',20,90), ('QlCom',20,20)], 'Carl': [('QlCom',30,22), ('QlCom',20,23), ('QlCom',-20,25), ('QlCom',-30,28)],  'Barb': [('Intel',80,42), ('Intel',-80,45), ('Intel',90,28)], 'Fran': [('BrCom',210,62), ('BrCom',-20,64), ('BrCom',-10,66), ('BrCom',10,55)], 'Allen': [('Intel',20,10), ('Dell', 10,50), ('Apple',80,80), ('Dell',-10,55)], 'Gabe': [('IBN',40,82), ('QlCom',80,25), ('IBN',-20,84), ('BrCom',50,65), ('QlCom',-40,28)], 'Dawn': [('Apple',40,92), ('Apple',40,98), ('Apple',-40,92)], 'Evan': [('Apple',50,92), ('Dell',20,50), ('Apple',-10,95), ('Apple',20,95), ('Dell',-20,90)]}
+==-->by_stock(db2)-->{'Intel': {'Hope': [(30, 40)], 'Barb': [(80, 42), (-80, 45), (90, 28)], 'Allen': [(20, 10)]}, 'Dell': {'Hope': [(20, 50)], 'Allen': [(10, 50), (-10, 55)], 'Evan': [(20, 50), (-20, 90)]}, 'IBN': {'Hope': [(10, 80)], 'Gabe': [(40, 82), (-20, 84)]}, 'Apple': {'Hope': [(20, 90)], 'Allen': [(80, 80)], 'Dawn': [(40, 92), (40, 98), (-40, 92)], 'Evan': [(50, 92), (-10, 95), (20, 95)]}, 'QlCom': {'Hope': [(20, 20)], 'Carl': [(30, 22), (20, 23), (-20, 25), (-30, 28)], 'Gabe': [(80, 25), (-40, 28)]}, 'BrCom': {'Fran': [(210, 62), (-20, 64), (-10, 66), (10, 55)], 'Gabe': [(50, 65)]}}
+
+# Test summary
+c-->db1 = {'Carl': [('Intel', 30, 40), ('Dell' , 20, 50), ('Intel',-10, 60), ('Apple', 20, 55)], 'Barb': [('Intel', 20, 40), ('Intel',-10, 45), ('IBN',   40, 30), ('Intel',-10, 35)], 'Allen': [('Intel', 20, 10), ('Dell',  10, 50), ('Apple', 80, 80), ('Dell', -10, 55)], 'Dawn': [('Apple', 40, 80), ('Apple', 40, 85), ('Apple',-40, 90)]}
+c-->prices1 = {'IBN': 65, 'Intel': 60, 'Dell': 55, 'Apple': 70}
+==-->summary(db1,prices1)-->{'Carl': ({'Intel': 20, 'Dell': 20, 'Apple': 20}, 3700), 'Barb': ({'IBN': 40}, 2600), 'Allen': ({'Intel': 20, 'Apple': 80}, 6800), 'Dawn': ({'Apple': 40}, 2800)}
+c-->db2 = {'Hope': [('Intel',30,40), ('Dell',20,50), ('IBN',10,80), ('Apple',20,90), ('QlCom',20,20)], 'Carl': [('QlCom',30,22), ('QlCom',20,23), ('QlCom',-20,25), ('QlCom',-30,28)],  'Barb': [('Intel',80,42), ('Intel',-80,45), ('Intel',90,28)], 'Fran': [('BrCom',210,62), ('BrCom',-20,64), ('BrCom',-10,66), ('BrCom',10,55)], 'Allen': [('Intel',20,10), ('Dell', 10,50), ('Apple',80,80), ('Dell',-10,55)], 'Gabe': [('IBN',40,82), ('QlCom',80,25), ('IBN',-20,84), ('BrCom',50,65), ('QlCom',-40,28)], 'Dawn': [('Apple',40,92), ('Apple',40,98), ('Apple',-40,92)], 'Evan': [('Apple',50,92), ('Dell',20,50), ('Apple',-10,95), ('Apple',20,95), ('Dell',-20,90)]}
+c-->prices2 = {'IBN': 85, 'Intel': 45, 'Dell': 50, 'Apple': 90, 'QlCom': 20, 'BrCom': 70}
+==-->summary(db2,prices2)-->{'Hope': ({'Intel': 30, 'Dell': 20, 'IBN': 10, 'Apple': 20, 'QlCom': 20}, 5400), 'Carl': ({}, 0), 'Barb': ({'Intel': 90}, 4050), 'Fran': ({'BrCom': 190}, 13300), 'Allen': ({'Intel': 20, 'Apple': 80}, 8100), 'Gabe': ({'IBN': 20, 'QlCom': 40, 'BrCom': 50}, 6000), 'Dawn': ({'Apple': 40}, 3600), 'Evan': ({'Apple': 60}, 5400)}

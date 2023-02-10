@@ -1,0 +1,120 @@
+# Setup
+c-->from imp import reload
+c-->import q6solution
+c-->reload(q6solution)
+c-->from goody import irange
+c-->from q6solution import alternate_i, alternate_r, count, bidict
+c-->from q6solution import list_to_ll, str_ll, str_tree, list_to_tree
+c-->from tkinter import *
+
+# Test alternate_i
+c-->ll1 = list_to_ll([])
+c-->ll2 = list_to_ll([])
+e-->str_ll(alternate_i(ll1,ll2))-->None
+c-->ll1 = list_to_ll([1])
+c-->ll2 = list_to_ll([])
+e-->str_ll(alternate_i(ll1,ll2))-->1->None
+c-->ll1 = list_to_ll([])
+c-->ll2 = list_to_ll([1])
+e-->str_ll(alternate_i(ll1,ll2))-->1->None
+c-->ll1 = list_to_ll([1])
+c-->ll2 = list_to_ll([2])
+e-->str_ll(alternate_i(ll1,ll2))-->1->2->None
+c-->ll1 = list_to_ll(['a','b','c','d'])
+c-->ll2 = list_to_ll(['w','x','y','z'])
+e-->str_ll(alternate_i(ll1,ll2))-->a->w->b->x->c->y->d->z->None
+c-->ll1 = list_to_ll(['a','b','c','d','e','f','g'])
+c-->ll2 = list_to_ll(['w','x','y','z'])
+e-->str_ll(alternate_i(ll1,ll2))-->a->w->b->x->c->y->d->z->e->f->g->None
+c-->ll1 = list_to_ll(['a','b','c','d'])
+c-->ll2 = list_to_ll(['w','x','y','z',1,2,3,4])
+e-->str_ll(alternate_i(ll1,ll2))-->a->w->b->x->c->y->d->z->1->2->3->4->None
+
+# Test alternate_r
+c-->ll1 = list_to_ll([])
+c-->ll2 = list_to_ll([])
+e-->str_ll(alternate_r(ll1,ll2))-->None
+c-->ll1 = list_to_ll([1])
+c-->ll2 = list_to_ll([])
+e-->str_ll(alternate_r(ll1,ll2))-->1->None
+c-->ll1 = list_to_ll([])
+c-->ll2 = list_to_ll([1])
+e-->str_ll(alternate_r(ll1,ll2))-->1->None
+c-->ll1 = list_to_ll([1])
+c-->ll2 = list_to_ll([2])
+e-->str_ll(alternate_r(ll1,ll2))-->1->2->None
+c-->ll1 = list_to_ll(['a','b','c','d'])
+c-->ll2 = list_to_ll(['w','x','y','z'])
+e-->str_ll(alternate_r(ll1,ll2))-->a->w->b->x->c->y->d->z->None
+c-->ll1 = list_to_ll(['a','b','c','d','e','f','g'])
+c-->ll2 = list_to_ll(['w','x','y','z'])
+e-->str_ll(alternate_r(ll1,ll2))-->a->w->b->x->c->y->d->z->e->f->g->None
+c-->ll1 = list_to_ll(['a','b','c','d'])
+c-->ll2 = list_to_ll(['w','x','y','z',1,2,3,4])
+e-->str_ll(alternate_r(ll1,ll2))-->a->w->b->x->c->y->d->z->1->2->3->4->None
+
+# Test count
+c-->tree = list_to_tree(None)
+e-->[count(tree,i) for i in irange(1,3)]-->[0, 0, 0]
+c-->tree = list_to_tree([1, [2, None, None], [3, None, None]])
+e-->[count(tree,i) for i in irange(1,3)]-->[1, 1, 1]
+c-->tree = list_to_tree([1, [2, None, [1, None, None]], [3, [1, None, None], None]])
+e-->[count(tree,i) for i in irange(1,3)]-->[3, 1, 1]
+c-->tree = list_to_tree([1, [2, [1, None, [2, None, None]], [1, None, None]], [3, [1, None, None], None]])
+e-->[count(tree,i) for i in irange(1,3)]-->[4, 2, 1]
+
+# Test bidict
+^-->b1 = bidict(a = ((),(),((),[])))-->ValueError
+^-->b1 = bidict(a = {1})-->ValueError
+^-->b1 = bidict(a = (1,2,{1:'a'}))-->ValueError
+
+c-->b1 = bidict(a=1,b=2,c=1)
+==-->b1-->{'a': 1, 'b': 2, 'c': 1}
+==-->b1._rdict-->{1: {'a', 'c'}, 2: {'b'}}
+c-->b1['a']= 2
+==-->b1-->{'a': 2, 'b': 2, 'c': 1}
+==-->b1._rdict-->{1: {'c'}, 2: {'a', 'b'}}
+c-->b1['d']= 2
+==-->b1-->{'a': 2, 'b': 2, 'c': 1, 'd': 2}
+==-->b1._rdict-->{1: {'c'}, 2: {'d', 'a', 'b'}}
+c-->b1['c']= 2
+==-->b1-->{'a': 2, 'b': 2, 'c': 2, 'd': 2}
+==-->b1._rdict-->{2: {'d', 'a', 'c', 'b'}}
+
+c-->b1.clear()
+==-->b1-->{}
+==-->b1._rdict-->{}
+
+c-->b2 = bidict(a=1,b=2,c=1,d=2)
+c-->del b2['a']
+==-->b2-->{'b': 2, 'c': 1, 'd': 2}
+==-->b2._rdict-->{1: {'c'}, 2: {'d', 'b'}}
+^-->del b2['a']-->KeyError
+c-->del b2['b']
+==-->b2-->{'c': 1, 'd': 2}
+==-->b2._rdict-->{1: {'c'}, 2: {'d'}}
+c-->del b2['c']
+==-->b2-->{'d': 2}
+==-->b2._rdict-->{2: {'d'}}
+c-->del b2['d']
+==-->b2-->{}
+==-->b2._rdict-->{}
+
+c-->b3 = bidict(a=1,b=2,c=1,d=2)
+==-->b3(1)-->{'a','c'}
+==-->b3(2)-->{'b','d'}
+^-->b3(3)-->KeyError
+
+==-->bidict.all_objects()-->[b1, b2, b3]
+c-->bidict.forget(b2)
+==-->bidict.all_objects()-->[b1, b3]
+c-->bidict.forget(b3)
+==-->bidict.all_objects()-->[b1]
+c-->bidict.forget(b1)
+==-->bidict.all_objects()-->[]
+
+# Really should be part of initial tests, but that would mess up all_objects
+c-->b1 = bidict(a = (1,2))
+c-->from bag import Bag
+c-->Bag.__hash__ = lambda x : 1
+c-->b1 = bidict(a = Bag())

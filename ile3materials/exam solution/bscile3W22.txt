@@ -1,0 +1,53 @@
+# Setup
+c-->from imp import reload
+c-->import exam
+c-->reload(exam)
+c-->from exam import tail, all_odd, min_cuts_odd, transformkey_dict
+c-->from ile3helper import ints, primes, hide, nth, nth_for_m, is_prime, Memoize
+c-->from inspect import isgeneratorfunction, isgenerator
+c-->from goody import irange
+c-->def odd_count_criteria(s : str) -> bool: return all(all_odd(part) for part in s.split('|'))
+
+# Test tail:
+e-->isgenerator(tail('a','b','c'))-->True
+e-->list(tail(hide('abc'), hide('abcdef'), hide('ab')))-->['d', 'e', 'f']
+e-->list(tail(hide('abcdef'), hide('ab'), hide('abc')))-->['d', 'e', 'f']
+e-->list(tail(hide('ab'), hide('abc'),hide('abcdef')))-->['d', 'e', 'f']
+e-->list(nth_for_m(tail(hide('abcdef'),ints(),hide('abc')),100,10))-->[106, 107, 108, 109, 110, 111, 112, 113, 114, 115]
+
+# Test all_odd helper
+e-->all_odd('')-->True
+e-->all_odd('a')-->True
+e-->all_odd('aa')-->False
+e-->all_odd('abca')-->False
+e-->all_odd('cabcaabcb')-->True
+e-->all_odd('cabbaabcb')-->False
+
+# Test min_cuts_odd: each test is a 3-TUPLE
+#   Left: odd-count criteria; middle: string without | is the same; Right: minimum criteria
+==-->odd_count_criteria(min_cuts_odd('')),min_cuts_odd('').replace('|',''),min_cuts_odd('').count('|')-->True,'',0
+==-->odd_count_criteria(min_cuts_odd('a')),min_cuts_odd('a').replace('|',''),min_cuts_odd('a').count('|')-->True,'a',0
+==-->odd_count_criteria(min_cuts_odd('aaa')),min_cuts_odd('aaa').replace('|',''),min_cuts_odd('aaa').count('|')-->True,'aaa',0
+==-->odd_count_criteria(min_cuts_odd('aa')),min_cuts_odd('aa').replace('|',''),min_cuts_odd('aa').count('|')-->True,'aa',1
+==-->odd_count_criteria(min_cuts_odd('aba')),min_cuts_odd('aba').replace('|',''),min_cuts_odd('aba').count('|')-->True,'aba',1
+==-->odd_count_criteria(min_cuts_odd('ababa')),min_cuts_odd('ababa').replace('|',''),min_cuts_odd('ababa').count('|')-->True,'ababa',2
+==-->odd_count_criteria(min_cuts_odd('aaaabb')),min_cuts_odd('aaaabb').replace('|',''),min_cuts_odd('aaaabb').count('|')-->True,'aaaabb',2
+==-->odd_count_criteria(min_cuts_odd('bcaabcab')),min_cuts_odd('bcaabcab').replace('|',''),min_cuts_odd('bcaabcab').count('|')-->True,'bcaabcab',2
+==-->odd_count_criteria(min_cuts_odd('bacacababa')),min_cuts_odd('bacacababa').replace('|',''),min_cuts_odd('bacacababa').count('|')-->True,'bacacababa',2
+==-->odd_count_criteria(min_cuts_odd('aacbbcca')),min_cuts_odd('aacbbcca').replace('|',''),min_cuts_odd('aacbbcca').count('|')-->True,'aacbbcca',3
+==-->odd_count_criteria(min_cuts_odd('bbaabccbba')),min_cuts_odd('bbaabccbba').replace('|',''),min_cuts_odd('bbaabccbba').count('|')-->True,'bbaabccbba',4
+==-->odd_count_criteria(min_cuts_odd('bbccbbaacc')),min_cuts_odd('bbccbbaacc').replace('|',''),min_cuts_odd('bbccbbaacc').count('|')-->True,'bbccbbaacc',5
+
+# Test transformkey_dict
+c-->d = transformkey_dict(str.lower)
+c-->d['aLPHa'] = 1
+c-->d['BetA'] = 2
+c-->d['ALPHA'] += 10
+e-->[d['alPHA'], d['BEta']]-->[11, 2]
+e-->dict.__str__(d)-->{'alpha': 11, 'beta': 2}
+e-->[d('aLpHa'), d('BeTa')]-->['aLPHa', 'BetA']
+
+# Test transformkey_dict extra credit
+c-->d = transformkey_dict(str.lower,[('ALPHA', 1), ('BETA',2)], GAmma=3, delTA = 4)
+e-->[d['alPHA'], d['BEta'],d['gamma'], d['DELTA']]-->[1, 2, 3, 4]
+e-->[d('alPHA'), d('BEta'),d('gamma'), d('DELTA')]-->['ALPHA', 'BETA', 'GAmma', 'delTA']

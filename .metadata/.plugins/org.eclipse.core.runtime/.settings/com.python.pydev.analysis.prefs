@@ -1,0 +1,5 @@
+DO_AUTO_IMPORT=false
+PEP8_USE_SYSTEM=true
+SEVERITY_PEP8=1
+SEVERITY_UNUSED_PARAMETER=1
+eclipse.preferences.version=1

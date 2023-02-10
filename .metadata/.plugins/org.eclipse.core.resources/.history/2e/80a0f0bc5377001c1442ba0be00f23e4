@@ -1,0 +1,56 @@
+import prompt 
+from goody       import safe_open,irange
+from collections import defaultdict # Use defaultdict for prefix and query
+
+
+def all_prefixes(fq : (str,)) -> {(str,)}:
+    s=set()
+    for x in range(1,len(fq)+1):
+        s.add(fq[:x])
+    return s
+
+        
+def add_query(prefix : {(str,):{(str,)}}, query : {(str,):int}, new_query : (str,)) -> None:
+    all_p_new=all_prefixes(new_query)
+    for x in all_p_new:
+        if x in prefix.keys():
+            cont=prefix[x]
+            cont.add(new_query)
+            prefix[x]=cont
+        else:
+            prefix[x]={new_query}
+    print(prefix)
+
+
+def read_queries(open_file : open) -> ({(str,):{(str,)}}, {(str,):int}):
+    pass
+
+
+def dict_as_str(d : {None:None}, key : callable=None, reverse : bool=False) -> str:
+    pass
+
+
+def top_n(a_prefix : (str,), n : int, prefix : {(str,):{(str,)}}, query : {(str,):int}) -> [(str,)]:
+    pass
+
+
+
+
+
+# Script
+
+if __name__ == '__main__':
+    # Write script here
+    #all_prefixes(('uci','medical','center'))
+    p,q = defaultdict(set), defaultdict(int)
+    add_query(p,q,('u','m','c'))
+    
+              
+    # For running batch self-tests
+    print()
+    import driver
+    driver.default_file_name = "bsc5.txt"
+#     driver.default_show_traceback = True
+#     driver.default_show_exception = True
+#     driver.default_show_exception_message = True
+    driver.driver()

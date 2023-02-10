@@ -1,0 +1,39 @@
+# A Black_Hole is derived from a Simulton base; it updates by finding+removing
+#   any objects (derived from a Prey base) whose center is crosses inside its
+#   radius (and returns a set of all eaten simultons); it displays as a black
+#   circle with a radius of 10 (e.g., a width/height 20).
+# Calling get_dimension for the width/height (for containment and displaying)'
+#   will facilitate inheritance in Pulsator and Hunter
+
+from simulton import Simulton
+
+
+
+class Black_Hole(Simulton):  
+    radius = 10
+    eaten=set()
+    def __init__(self,x,y,color,width,height):
+        Simulton.__init__(self,x,y,width,height)
+        self._x       = x
+        self._y       = y
+        self._color   = color
+        
+    def update(self,model):
+        for b in model.balls:
+            if Black_Hole.contains(self,b):
+                Black_Hole.eaten.add(b)
+        return Black_Hole.eaten
+            
+            
+        
+    def display(self,canvas):
+       canvas.create_oval(self._x-Black_Hole.radius      , self._y-Black_Hole.radius,
+                                self._x+Black_Hole.radius, self._y+Black_Hole.radius,
+                                fill=self._color)
+
+    def contains(self,b):
+        if (b._x-self._x)**2+(b._y-self._y)**2<=radius**2:
+            return True
+        else:
+            return False
+        

@@ -1,0 +1,108 @@
+# Setup
+c-->from importlib import reload
+c-->import q5solution
+c-->reload(q5solution)
+c-->import predicate,random
+c-->from functools import reduce
+c-->from q5solution import odd, compare, get_assoc, del_assoc, set_assoc, immutify, balanced, my_str
+
+# Test odd
+e-->odd(())-->()
+e-->odd((1,))-->(1,)
+e-->odd((1,2))-->(1,)
+e-->odd((0,1,2,3,4,5,6,7,8))-->(0, 2, 4, 6, 8)
+e-->odd((9,8,7,6,5,4,3,2,1,0))-->(9, 7, 5, 3, 1)
+
+# Test compare
+e-->compare('','')-->=
+e-->compare('','abc')--><
+e-->compare('abc','')-->>
+e-->compare('abc','abc')-->=
+e-->compare('bc','abc')-->>
+e-->compare('abc','bc')--><
+e-->compare('aaaxc','aaabd')-->>
+e-->compare('aaabd','aaaxc')--><
+
+# Test get_assoc
+c-->assoc = ( ('a','d'), ('c','b'), ('d','c'), ('b','a') )
+e-->get_assoc(assoc, 'a')-->d
+e-->get_assoc(assoc, 'b')-->a
+e-->get_assoc(assoc, 'c')-->b
+e-->get_assoc(assoc, 'd')-->c
+^-->get_assoc((),'a')-->KeyError
+^-->get_assoc(assoc, 'x')-->KeyError
+
+# Test del_assoc
+c-->assoc = ( ('a','d'), ('c','b'), ('d','c'), ('b','a') )
+c-->ans = del_assoc(assoc,'b')
+e-->ans-->(('a', 'd'), ('c', 'b'), ('d', 'c'))
+c-->assoc = (('a', 1), ('c', 3), ('d', 4))
+^-->del_assoc(assoc,'x')-->KeyError
+c-->ans = del_assoc(assoc,'a')
+e-->ans-->(('c', 3), ('d', 4))
+c-->assoc = (('c', 3), ('d', 4))
+c-->ans = del_assoc(assoc,'c')
+e-->ans-->(('d', 4),)
+c-->assoc = (('d', 4),)
+c-->ans = del_assoc(assoc,'d')
+e-->ans-->()
+^-->del_assoc((),'x')-->KeyError
+
+# Test set_assoc
+c-->assoc = ()
+c-->ans = set_assoc(assoc,'b', 2)
+e-->ans-->(('b', 2),)
+c-->assoc = (('b', 2),)
+c-->ans = set_assoc(assoc,'a', 1)
+e-->ans-->(('b', 2), ('a', 1))
+c-->assoc = (('b', 'c'), ('a', 'b'))
+c-->ans = set_assoc(assoc,'c', 3)
+e-->ans-->(('b', 'c'), ('a', 'b'), ('c', 3))
+c-->assoc = (('b', 2), ('a', 1), ('c', 3))
+c-->ans = set_assoc(assoc,'d', 4)
+e-->ans-->(('b', 2), ('a', 1), ('c', 3), ('d', 4))
+c-->assoc = (('b', 2), ('a', 1), ('c', 3), ('d', 4))
+c-->ans = set_assoc(assoc,'b', 102)
+e-->ans-->(('b', 102), ('a', 1), ('c', 3), ('d', 4))
+c-->assoc = (('b', 102), ('a', 1), ('c', 3), ('d', 4))
+c-->ans = set_assoc(assoc,'c', 103)
+e-->ans-->(('b', 102), ('a', 1), ('c', 103), ('d', 4))
+c-->assoc = (('b', 102), ('a', 1), ('c', 103), ('d', 4))
+c-->ans = set_assoc(assoc,'d', 104)
+e-->ans-->(('b', 102), ('a', 1), ('c', 103), ('d', 104))
+
+
+# Test immutify
+==-->immutify(1)-->1
+==-->immutify('a')-->'a'
+==-->immutify( (1, 2, 3))-->(1, 2, 3)
+==-->immutify( frozenset([1, 2, 3]))-->frozenset({1, 2, 3})
+==-->immutify( [1, 2, 3, 4, 5, 6])-->(1, 2, 3, 4, 5, 6)
+==-->immutify( [1, 2, [3, [4], 5], 6])-->(1, 2, (3, (4,), 5), 6)
+==-->immutify( [1, 2, (3, [4], 5), 6])-->(1, 2, (3, (4,), 5), 6)
+==-->immutify( [{1,2}, {3,frozenset([4,5])}, {6,7}])-->(frozenset({1, 2}), frozenset({3, frozenset({4, 5})}), frozenset({6, 7}))
+==-->immutify( [{1,2}, {3,frozenset([4,5])}, [{5,6}]])-->(frozenset({1, 2}), frozenset({3, frozenset({4, 5})}), (frozenset({5, 6}),))
+==-->immutify( {'b' : [1,2], 'a' : {'ab': {1,2}, 'aa' : (1,2)}})-->(('a', (('aa', (1, 2)), ('ab', frozenset({1, 2})))), ('b', (1, 2)))
+
+# Test balanced
+e-->balanced('()')-->True
+e-->balanced('()()')-->True
+e-->balanced('(()())')-->True
+e-->balanced('()(()(()))')-->True
+e-->balanced('(()())(()(()))')-->True
+e-->balanced('(')-->False
+e-->balanced(')')-->False
+e-->balanced('()(()(())')-->False
+
+# Test my_str
+c-->x = [1,[2],3]
+c-->x[1] = x
+==-->my_str(x)-->str(x)
+c-->x = [1,2,3]
+c-->x[1] = x
+c-->y = [10,11,12]
+c-->x[0] = y
+c-->y[2] = x
+==-->my_str(x)-->str(x)
+==-->my_str(y)-->str(y)
+ 

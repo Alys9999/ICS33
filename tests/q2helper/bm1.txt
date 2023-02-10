@@ -1,0 +1,11 @@
+m
+gf
+Ggs
+GGgd
+Sm
+SGgs
+Above should match; below should not (and of course, not this line)
+mf
+Gm
+SSm
+GSs
